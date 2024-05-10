@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login/styles.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <title>Payex - Login</title>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="login-container">
+        <div class="login-form">
+            <h2><b>Login</b></h2>
+            <form>
+                <div class="form-group">
+                    <input type="text" id="username" placeholder="Usuário" autocomplete="username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Senha" required>
+                    <button type="button" id="togglePasswordLogin">👁️</button>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+            <p class="forgot-password">Esqueceu sua senha?</p>
+            <p class="register-link">Não tem uma conta? <a href="#" id="register-links">Cadastre-se</a></p>
+        </div>
+        <div class="register-form" id="registerForm">
+            <h2><b>Cadastre-se</b></h2>
+            <form>
+                <div class="form-group">
+                    <input type="text" id="new-username" placeholder="Novo Usuário" autocomplete="username" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="new-email" placeholder="Novo E-mail" autocomplete="email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="new-password" placeholder="Nova Senha" required>
+                    <button type="button" id="togglePasswordRegister">👁️</button>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirm-password" placeholder="Confirmar Senha" required>
+                    <button type="button" id="toggleConfirmPassword">👁️</button>
+                </div>
+                <button type="submit">Cadastrar</button>
+            </form>
+            <p class="login-link">Já tem uma conta? <a href="#" id="login-links">Entre</a></p>
+        </div>        
+    </div>
+    <div id="popup" class="popup"></div>
+    <script src="login/script.js"></script>
+</body>
+</html>

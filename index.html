@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <link rel="stylesheet" href="https://unpkg.com/simplebar/dist/simplebar.min.css">
+    <link rel="stylesheet" href="agenda/styles.css">
+    <title>Agenda - Payex</title>
+</head>
+<body>
+    <header class="print-hidden">
+        <div class="logo">
+            <img src="images/logo.png" alt="Payex Logo">
+            <span>Payex</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><button class="nav-button" onclick="control()">Controle</button></li>
+                <li><button class="nav-button" onclick="printList()">Imprimir</button></li>
+                <li><button class="nav-button" onclick="toggleMenu()">Perfil</button></li>
+            </ul>
+        </nav>
+        <div id="profileMenu" class="profile-menu">
+            <ul>
+                <li id="greeting">Username</li>
+                <span class="separator"></span>
+                <li><a>Configurações</a></li>
+                <li><a onclick="logoutUser()">Deslogar</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="control-panel print-hidden">
+            <h2>Controle</h2>
+            <div id="paymentSummary">
+                <div>
+                    <input type="number" id="salaryInput" placeholder="Digite seu salário">
+                    <button id="saveSalaryButton" onclick="salary()">Salvar</button>
+                </div>
+                <p>Pagou: <span id="totalPaid">0.00</span></p>
+                <p>Pagará: <span id="totalToPay">0.00</span></p>
+                <p>Total: <span id="totalSpent">0.00</span></p>
+            </div>
+            <h3>Pagamentos Próximos</h3>
+            <ul id="upcomingPayments"></ul>
+        </div>        
+        <div class="create-payment print-hidden">
+            <h2>Criar Pagamento</h2>
+            <form id="paymentForm">
+                <input type="text" id="paymentName" placeholder="Nome">
+                <input type="date" id="paymentDate" placeholder="Vencimento">
+                <input type="number" id="paymentValue" placeholder="Valor">
+                <button id="submitButton" type="button">Criar</button>
+            </form>
+        </div>
+        <div class="payment-list simplebar">
+            <h2 class="print-hidden">Lista de Pagamentos</h2>
+            <input type="text" id="searchInput" placeholder="Pesquisar" class="print-hidden">
+            <select id="filterSelect" class="print-hidden">
+                <option value="name">Nome</option>
+                <option value="date">Vencimento</option>
+                <option value="paid">Pagou</option>
+                <option value="nopaid">A Pagar</option>
+            </select>
+            <table id="paymentsList" class="print-show">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Vencimento</th>
+                        <th>Valor</th>
+                        <th>Pago</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tableList"></tbody>
+            </table>
+        </div>
+    </main>
+    <div id="popup" class="popup"></div>
+    <script src="https://unpkg.com/simplebar/dist/simplebar.min.js"></script>
+    <script src="agenda/script.js"></script>
+</body>
+</html>
